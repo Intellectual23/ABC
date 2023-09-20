@@ -11,7 +11,7 @@ if_d_less_0:
 	sub t1, t1, t4
 	li t3, -1 #m=-1
 if_0:
-	bnez t0, if_less_0
+	bnez t1, if_less_0
 	li a7 10 #exit
 	ecall
 if_less_0:
