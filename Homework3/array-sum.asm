@@ -71,6 +71,7 @@ sum:
 	li s5 0 
 	li s4 0
 	li s6 0
+	li s7 0
 	sum_gr_0: # cмотрим знаки старой суммы и нового числа массива
 		bltz t4 num_gr_0
 		li s6 1
