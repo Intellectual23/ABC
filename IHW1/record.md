@@ -1,4 +1,4 @@
-<img width="360" alt="image" src="https://github.com/Intellectual23/ABC/assets/68235201/9d5064b3-e4f4-4877-96e7-d1695b1d9a29">Калашников Егор Игоревич
+Калашников Егор Игоревич
 
 БПИ226
 
