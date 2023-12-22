@@ -5,59 +5,49 @@
 #include <random>
 #include <algorithm>
 
-const int MAX_FLOWERS = 40;
+const int MAX_FLOWERS = 40; // По условию 40 цветков.
 const int MAX_WATERING = 40;
-int wateringCount = 0;
-pthread_mutex_t consoleMutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t wateringMutex = PTHREAD_MUTEX_INITIALIZER;
+int wateringCount = 0;      // Счётчик политых цветов.
+pthread_mutex_t consoleMutex = PTHREAD_MUTEX_INITIALIZER; // Мьютекс для вывода, чтобы на консоли сообщения не перебивали друг друга.
+pthread_mutex_t wateringMutex = PTHREAD_MUTEX_INITIALIZER; // Мьютекс для поливкки, чтобы два садовника не поливали одновременно один и тот же цветок.
 
-void printMessage(const std::string &message) {
+void printMessage(const std::string &message) { // Печать данных на экран и в файл.
     pthread_mutex_lock(&consoleMutex);
     std::cout << message << std::endl;
     pthread_mutex_unlock(&consoleMutex);
 }
 
-int Generate(const int maxValue) {
+int Generate(const int maxValue) { // Генерация данных от 0 до заданной границы.
     static std::mt19937 eng(std::time(NULL));
     std::uniform_int_distribution<int> distribution(0, maxValue);
     return distribution(eng);
 }
 
-enum FlowerState {
+enum FlowerState { // Три состояния цветка.
     Watered, NeedsWatering, DriedOrRoten
 };
 
-class Flower {
+class Flower { // Класс цветка
 public:
-    int _flowerNum;
-    std::string _wateringBy;
-    pthread_mutex_t flowerMutex{};
+    int _flowerNum{};
     FlowerState _flowerState;
-    bool _isWatering;
 
-    Flower() = default;
+    Flower() = default; // Конструктор по умолчанию.
 
-    Flower(int num) : _flowerNum(num), _flowerState(FlowerState::NeedsWatering), _isWatering(false) {
-        pthread_mutex_init(&flowerMutex, NULL);
-    }
+    explicit Flower(int num) : _flowerNum(num), _flowerState(FlowerState::NeedsWatering) {}
 
     void Water(std::string gardenerName) {
-        pthread_mutex_lock(&flowerMutex);
         if (_flowerState != FlowerState::DriedOrRoten) {
-            _isWatering = true;
             printMessage(gardenerName + " is watering Flower #" + std::to_string(_flowerNum) + "");
             if (_flowerState == NeedsWatering) {
                 _flowerState = Watered;
             } else {
                 _flowerState = DriedOrRoten; // (Roten)
             }
-            _isWatering = false;
-            pthread_mutex_unlock(&flowerMutex);
             return;
         }
         printMessage("Flower #" + std::to_string(_flowerNum) + " is already dead. It doesn't need any water, " +
                      gardenerName + "");
-        pthread_mutex_unlock(&flowerMutex);
     }
 
     void Dry() {
@@ -80,11 +70,10 @@ void initFlowers() {
     }
 }
 
-class Gardener {
+class Gardener { // класс садовника
 public:
     std::string _name;
-    pthread_t thread{};
-    Flower *_flower;
+    pthread_t thread{}; // его поток.
 
     Gardener(std::string gardenerName) : _name(std::move(gardenerName)) {
         pthread_create(&thread, NULL, &Gardener::WrappedWatering, this);
@@ -100,46 +89,47 @@ public:
     }
 
     void Water() {
-        while (wateringCount < MAX_WATERING) {
+        while (wateringCount < MAX_WATERING) { // условие конца работы потоков
             pthread_mutex_lock(&wateringMutex);
             auto curFlower = ChooseFlower();
-            curFlower->Water(_name);
+            curFlower->Water(_name); // выбираем цветок для поливки
             pthread_mutex_unlock(&wateringMutex);
-            usleep(2000000);
-            ++wateringCount;
+            usleep(Generate(
+                    2000000)); // Используем генератор чисел - задержки садовника перед следующим поливом - до 2-х секунд.
+            ++wateringCount; // увеличиваем счетчик поливов
         }
         pthread_exit(NULL);
     }
 
 private:
     Flower *ChooseFlower() {
-        // Создаем генератор случайных чисел
+        // Создаем другой генератор случайных чисел
         std::random_device rd;
         std::mt19937 g(rd());
-        std::shuffle(std::begin(flowers), std::end(flowers), g);
-        for (int i = 0; i < MAX_FLOWERS; ++i) {
-            if (flowers[i]->_flowerState == NeedsWatering && !flowers[i]->_isWatering) {
-                return flowers[i];
+        std::shuffle(std::begin(flowers), std::end(flowers),
+                     g); //Для красоты и чтобы поливались случайные нуждающиеся цветы, перемешиваем массив цветов.
+        for (auto &flower: flowers) {
+            if (flower->_flowerState ==
+                NeedsWatering) { // и берем первый нуждающийся цветок из перемешанного массива.
+                return flower;
             }
         }
-        return flowers[Generate(MAX_FLOWERS - 1)]; // random
+        return flowers[Generate(MAX_FLOWERS -
+                                1)]; // Если все мертвы или политы (что маловероятно), берем рандомный. Используем тот же генератор чисел.
     }
 };
 
-class Garden {
+class Garden { // Класс клумбы.
 public:
-    pthread_t thread{};
-    pthread_mutex_t gardenMutex = PTHREAD_MUTEX_INITIALIZER;
-    pthread_cond_t gardenCond = PTHREAD_COND_INITIALIZER;
+    pthread_t thread{}; // ее поток
+
 
     static void *MonitorFlowers(void *arg) {
         Garden *garden = (Garden *) arg;
         usleep(100000);
         while (wateringCount < MAX_WATERING) {
-            pthread_mutex_lock(&garden->gardenMutex);
             for (int i = 0; i < MAX_FLOWERS; ++i) {
                 Flower *flower = flowers[i];
-                pthread_mutex_lock(&flower->flowerMutex);
                 if (flower->_flowerState == NeedsWatering) {
                     printMessage("-Flower #" + std::to_string(flower->_flowerNum) + " needs watering!");
                 } else if (flower->_flowerState == DriedOrRoten) {
@@ -147,16 +137,11 @@ public:
                 } else {
                     printMessage("-Flower #" + std::to_string(flower->_flowerNum) + " is watered :)");
                 }
-                pthread_mutex_unlock(&flower->flowerMutex);
             }
             usleep(10000000);
             for (int i = 0; i < MAX_FLOWERS; ++i) {
-                pthread_mutex_lock(&flowers[i]->flowerMutex);
                 flowers[i]->Dry(); // Вызов метода Dry() для всех цветов
-                pthread_mutex_unlock(&flowers[i]->flowerMutex);
             }
-            pthread_cond_broadcast(&garden->gardenCond);
-            pthread_mutex_unlock(&garden->gardenMutex);
         }
         return NULL;
     }
