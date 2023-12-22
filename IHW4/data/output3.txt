@@ -1,1 +1,172 @@
 
+= Mario is watering Flower #28
+= Luigi is watering Flower #8
+- Flower #8 is watered :)
+- Flower #11 needs watering!
+- Flower #22 needs watering!
+- Flower #26 needs watering!
+- Flower #10 needs watering!
+- Flower #28 is watered :)
+- Flower #3 needs watering!
+- Flower #32 needs watering!
+- Flower #5 needs watering!
+- Flower #15 needs watering!
+- Flower #9 needs watering!
+- Flower #30 needs watering!
+- Flower #17 needs watering!
+- Flower #33 needs watering!
+- Flower #23 needs watering!
+- Flower #25 needs watering!
+- Flower #34 needs watering!
+- Flower #36 needs watering!
+- Flower #2 needs watering!
+- Flower #27 needs watering!
+- Flower #20 needs watering!
+- Flower #19 needs watering!
+- Flower #18 needs watering!
+- Flower #12 needs watering!
+- Flower #4 needs watering!
+- Flower #38 needs watering!
+- Flower #1 needs watering!
+- Flower #29 needs watering!
+- Flower #31 needs watering!
+- Flower #14 needs watering!
+- Flower #24 needs watering!
+- Flower #37 needs watering!
+- Flower #35 needs watering!
+- Flower #40 needs watering!
+- Flower #6 needs watering!
+- Flower #16 needs watering!
+- Flower #13 needs watering!
+- Flower #39 needs watering!
+- Flower #21 needs watering!
+- Flower #7 needs watering!
+= Luigi is watering Flower #19
+= Luigi is watering Flower #29
+= Luigi is watering Flower #34
+= Luigi is watering Flower #27
+= Luigi is watering Flower #4
+= Mario is watering Flower #12
+= Luigi is watering Flower #32
+= Mario is watering Flower #2
+= Mario is watering Flower #21
+= Mario is watering Flower #22
+= Luigi is watering Flower #38
+= Mario is watering Flower #33
+= Luigi is watering Flower #40
+= Luigi is watering Flower #1
+= Mario is watering Flower #6
+= Luigi is watering Flower #3
+= Mario is watering Flower #30
+= Luigi is watering Flower #9
+= Mario is watering Flower #25
+= Mario is watering Flower #24
+= Luigi is watering Flower #15
+= Mario is watering Flower #36
+= Luigi is watering Flower #26
+= Mario is watering Flower #37
+= Luigi is watering Flower #17
+= Mario is watering Flower #39
+- Flower #39 needs watering!
+- Flower #22 needs watering!
+- Flower #24 needs watering!
+- Flower #27 needs watering!
+- Flower #30 needs watering!
+- Flower #35 is dried or roten :(
+- Flower #9 needs watering!
+- Flower #12 needs watering!
+- Flower #18 is dried or roten :(
+- Flower #7 is dried or roten :(
+- Flower #4 needs watering!
+- Flower #8 needs watering!
+- Flower #11 is dried or roten :(
+- Flower #19 needs watering!
+- Flower #15 needs watering!
+- Flower #29 needs watering!
+- Flower #1 needs watering!
+- Flower #5 is dried or roten :(
+- Flower #16 is dried or roten :(
+- Flower #10 is dried or roten :(
+- Flower #23 is dried or roten :(
+- Flower #25 needs watering!
+- Flower #33 needs watering!
+- Flower #37 needs watering!
+- Flower #36 needs watering!
+- Flower #17 needs watering!
+- Flower #28 needs watering!
+- Flower #40 needs watering!
+- Flower #31 is dried or roten :(
+- Flower #21 needs watering!
+- Flower #6 needs watering!
+- Flower #26 needs watering!
+- Flower #2 needs watering!
+- Flower #20 is dried or roten :(
+- Flower #3 needs watering!
+- Flower #14 is dried or roten :(
+- Flower #13 is dried or roten :(
+- Flower #34 needs watering!
+- Flower #38 needs watering!
+- Flower #32 needs watering!
+= Luigi is watering Flower #30
+= Luigi is watering Flower #19
+= Luigi is watering Flower #27
+= Mario is watering Flower #15
+= Luigi is watering Flower #4
+= Mario is watering Flower #33
+= Luigi is watering Flower #34
+= Mario is watering Flower #40
+= Luigi is watering Flower #21
+= Mario is watering Flower #28
+= Luigi is watering Flower #6
+= Mario is watering Flower #1
+= Luigi is watering Flower #2
+= Mario is watering Flower #32
+= Luigi is watering Flower #3
+= Mario is watering Flower #26
+= Luigi is watering Flower #17
+= Mario is watering Flower #8
+= Mario is watering Flower #12
+= Luigi is watering Flower #37
+= Luigi is watering Flower #9
+- Flower #28 needs watering!
+- Flower #32 needs watering!
+- Flower #10 is dried or roten :(
+- Flower #9 needs watering!
+- Flower #35 is dried or roten :(
+- Flower #18 is dried or roten :(
+- Flower #5 is dried or roten :(
+- Flower #2 needs watering!
+- Flower #6 needs watering!
+- Flower #23 is dried or roten :(
+- Flower #17 needs watering!
+- Flower #1 needs watering!
+- Flower #20 is dried or roten :(
+- Flower #19 needs watering!
+- Flower #24 is dried or roten :(
+- Flower #11 is dried or roten :(
+- Flower #22 is dried or roten :(
+- Flower #8 needs watering!
+- Flower #40 needs watering!
+- Flower #30 needs watering!
+- Flower #38 is dried or roten :(
+- Flower #21 needs watering!
+- Flower #7 is dried or roten :(
+- Flower #13 is dried or roten :(
+- Flower #34 needs watering!
+- Flower #14 is dried or roten :(
+- Flower #29 is dried or roten :(
+- Flower #12 needs watering!
+- Flower #15 needs watering!
+- Flower #37 needs watering!
+- Flower #26 needs watering!
+- Flower #31 is dried or roten :(
+- Flower #3 needs watering!
+- Flower #25 is dried or roten :(
+- Flower #33 needs watering!
+- Flower #39 is dried or roten :(
+- Flower #4 needs watering!
+- Flower #36 is dried or roten :(
+- Flower #27 needs watering!
+- Flower #16 is dried or roten :(
+= Luigi is watering Flower #3
+= Luigi is watering Flower #2
